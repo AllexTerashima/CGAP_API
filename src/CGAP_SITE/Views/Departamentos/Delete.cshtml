@@ -1,0 +1,53 @@
+﻿@model CGAP_SITE.Models.Departamento
+@{
+    ViewData["Title"] = "Excluir Departamento";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Tem certeza que deseja excluir este departamento?</h3>
+<div>
+    <h4>@ViewData["Message"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayName("País")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+    </dl>
+
+    <form asp-action="ConfirmDelete">
+        <input type="hidden" asp-for="DepartamentoID" />
+        <div class="form-actions no-color col-md-offset-1">
+            <button type="submit" value="Excluir" class="btn btn-default">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Excluir
+            </button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <br />
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <a asp-action="Index">Voltar à Lista</a>
+</div>

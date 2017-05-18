@@ -1,0 +1,59 @@
+﻿@model CGAP_SITE.Models.Produto
+@{
+    ViewData["Title"] = "Excluir Produto";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Tem certeza que deseja excluir este produto?</h3>
+<div>
+    <h4>@ViewData["Message1"] - @ViewData["Message2"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tag)
+        </dd>
+        <dt>
+            @Html.DisplayName("Sala")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sala.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+    </dl>
+
+    <form asp-action="ConfirmDelete">
+        <input type="hidden" asp-for="ProdutoID" />
+        <div class="form-actions no-color col-md-offset-1">
+            <button type="submit" value="Excluir" class="btn btn-default">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Excluir
+            </button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <br />
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <a asp-action="Index">Voltar à Lista</a>
+</div>

@@ -1,0 +1,59 @@
+﻿@model CGAP_SITE.Models.Departamento
+
+@{
+    ViewData["Title"] = "Editar Departamento";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Update">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="DepartamentoID" />
+        <div class="form-group">
+            <label asp-for="Nome" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Pais" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Pais" class="form-control" />
+                <span asp-validation-for="Pais" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Estado" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cidade" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Cidade" class="form-control" />
+                <span asp-validation-for="Cidade" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" value="Editar" class="btn btn-default">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Editar
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <a asp-action="Index">Voltar à Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

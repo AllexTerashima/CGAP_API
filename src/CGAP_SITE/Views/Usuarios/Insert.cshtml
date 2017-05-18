@@ -1,0 +1,108 @@
+﻿@model CGAP_SITE.Models.Usuario
+
+@{
+    ViewData["Title"] = "Cadastrar Usuário";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Insert" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Nome" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Senha" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Senha" class="form-control" />
+                <span asp-validation-for="Senha" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmarSenha" class="col-md-2 control-label">Confirme a Senha</label>
+            <div class="col-md-10">
+                <input asp-for="ConfirmarSenha" class="form-control" />
+                <span asp-validation-for="ConfirmarSenha" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Nascimento" class="col-md-2 control-label">Data de Nascimento</label>
+            <div class="col-md-10">
+                <input asp-for="Nascimento" class="form-control" />
+                <span asp-validation-for="Nascimento" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Rg" class="col-md-2 control-label">RG</label>
+            <div class="col-md-10">
+                    <input asp-for="Rg" class="form-control" />
+                <span asp-validation-for="Rg" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Cpf" class="col-md-2 control-label">CPF</label>
+            <div class="col-md-10">
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Telefone" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                    <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Perfil" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="PerfilID" class="form-control" asp-items="ViewBag.PerfilID">
+                    <option value="">-- Selecione o Perfil --</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Departamento" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="DepartamentoID" class="form-control" asp-items="ViewBag.DepartamentoID">
+                    <option value="">-- Selecione o Departamento --</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Foto" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Foto">
+            </div>
+        </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" value="Cadastrar" class="btn btn-default">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cadastrar
+                    </button>
+                </div>
+            </div>
+        </div>
+</form>
+
+<div>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <a asp-action="Index">Voltar à Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
