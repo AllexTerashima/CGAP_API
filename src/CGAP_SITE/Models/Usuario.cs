@@ -34,11 +34,6 @@ namespace CGAP_SITE.Models
 
         public string Telefone { get; set; }
 
-        [NotMapped]
-        public IFormFile Foto { get; set; }
-
-        public string FotoLocale { get; set; }
-
         public int DepartamentoID { get; set; }
 
         [NotMapped]

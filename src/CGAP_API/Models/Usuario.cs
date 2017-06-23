@@ -34,19 +34,16 @@ namespace CGAP_API.Models
 
         public string Telefone { get; set; }
 
-        [NotMapped]
-        public IFormFile Foto { get; set; }
-
-        public string FotoLocale { get; set; }
-
         public int DepartamentoID { get; set; }
 
-        [NotMapped]
-        public Departamento Departamento { get; set; }
+        [ForeignKey("DepartamentoID")]
+        [InverseProperty("DepartamentoUsuarios")]
+        public virtual Departamento Departamento { get; set; }
 
         public int PerfilID { get; set; }
 
-        [NotMapped]
-        public Perfil Perfil { get; set; }
+        [ForeignKey("PerfilID")]
+        [InverseProperty("PerfilUsuarios")]
+        public virtual Perfil Perfil { get; set; }
     }
 }

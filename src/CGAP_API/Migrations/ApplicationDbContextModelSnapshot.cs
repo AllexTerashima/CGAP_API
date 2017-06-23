@@ -103,8 +103,6 @@ namespace CGAP_API.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("FotoLocale");
-
                     b.Property<DateTime>("Nascimento");
 
                     b.Property<string>("Nome");
@@ -129,7 +127,7 @@ namespace CGAP_API.Migrations
             modelBuilder.Entity("CGAP_API.Models.Produto", b =>
                 {
                     b.HasOne("CGAP_API.Models.Sala", "Sala")
-                        .WithMany("Produtos")
+                        .WithMany("SalaProdutos")
                         .HasForeignKey("SalaID")
                         .HasConstraintName("ForeignKey_Produto_Sala");
                 });
@@ -137,7 +135,7 @@ namespace CGAP_API.Migrations
             modelBuilder.Entity("CGAP_API.Models.Sala", b =>
                 {
                     b.HasOne("CGAP_API.Models.Departamento", "Departamento")
-                        .WithMany("Salas")
+                        .WithMany("DepartamentoSalas")
                         .HasForeignKey("DepartamentoID")
                         .HasConstraintName("ForeignKey_Sala_Departamento");
                 });
@@ -145,12 +143,12 @@ namespace CGAP_API.Migrations
             modelBuilder.Entity("CGAP_API.Models.Usuario", b =>
                 {
                     b.HasOne("CGAP_API.Models.Departamento", "Departamento")
-                        .WithMany("Usuarios")
+                        .WithMany("DepartamentoUsuarios")
                         .HasForeignKey("DepartamentoID")
                         .HasConstraintName("ForeignKey_Usuario_Departamento");
 
                     b.HasOne("CGAP_API.Models.Perfil", "Perfil")
-                        .WithMany("Usuarios")
+                        .WithMany("PerfilUsuarios")
                         .HasForeignKey("PerfilID")
                         .HasConstraintName("ForeignKey_Usuario_Perfil");
                 });

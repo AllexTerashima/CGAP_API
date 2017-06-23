@@ -16,10 +16,11 @@ namespace CGAP_API.Models
 
         public int DepartamentoID { get; set; }
 
-        [NotMapped]
-        public Departamento Departamento { get; set; }
+        [ForeignKey("DepartamentoID")]
+        [InverseProperty("DepartamentoSalas")]
+        public virtual Departamento Departamento { get; set; }
 
-        [NotMapped]
-        public ICollection<Produto> Produtos { get; set; }
+        
+        public virtual ICollection<Produto> SalaProdutos { get; set; }
     }
 }

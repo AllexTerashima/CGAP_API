@@ -18,7 +18,6 @@ namespace CGAP_API.Models
 
         public bool Auditorar { get; set; }
 
-        [NotMapped]
-        public ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Usuario> PerfilUsuarios { get; set; }
     }
 }

@@ -14,9 +14,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Foto de Perfil")
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
@@ -29,9 +26,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Foto)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>

@@ -53,7 +53,7 @@ namespace CGAP_API.Repository.Salas
         public void Update(Sala itemToUpdate, Sala item)
         {
             itemToUpdate.Nome = item.Nome;
-            itemToUpdate.Produtos = item.Produtos;
+            itemToUpdate.SalaProdutos = item.SalaProdutos;
             itemToUpdate.Tag = item.Tag;
             itemToUpdate.DepartamentoID = item.DepartamentoID;
             itemToUpdate.Departamento = item.Departamento;

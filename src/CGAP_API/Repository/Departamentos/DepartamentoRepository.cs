@@ -57,8 +57,8 @@ namespace CGAP_API.Repository.Departamentos
             itemToUpdate.Pais = item.Pais;
             itemToUpdate.Estado = item.Estado;
             itemToUpdate.Cidade = item.Cidade;
-            itemToUpdate.Salas = item.Salas;
-            itemToUpdate.Usuarios = item.Usuarios;
+            itemToUpdate.DepartamentoSalas = item.DepartamentoSalas;
+            itemToUpdate.DepartamentoUsuarios = item.DepartamentoUsuarios;
             context.SaveChanges();
         }
     }

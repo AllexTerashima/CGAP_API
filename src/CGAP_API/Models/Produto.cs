@@ -21,7 +21,8 @@ namespace CGAP_API.Models
 
         public int SalaID { get; set; }
 
-        [NotMapped]
-        public Sala Sala { get; set; }
+        [ForeignKey("SalaID")]
+        [InverseProperty("SalaProdutos")]
+        public virtual Sala Sala { get; set; }
     }
 }

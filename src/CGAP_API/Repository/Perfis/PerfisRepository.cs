@@ -49,7 +49,7 @@ namespace CGAP_API.Repository.Perfis
             itemToUpdate.Emitir = item.Emitir;
             itemToUpdate.Nome = item.Nome;
             itemToUpdate.Receber = item.Receber;
-            itemToUpdate.Usuarios = item.Usuarios;
+            itemToUpdate.PerfilUsuarios = item.PerfilUsuarios;
             context.Perfis.Update(itemToUpdate);
             context.SaveChanges();
         }

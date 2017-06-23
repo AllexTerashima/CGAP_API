@@ -18,12 +18,6 @@ namespace CGAP_API.Repository.Usuarios
 
         public void Add(Usuario item)
         {
-            item.FotoLocale = $"Uploads\\CGAP_Pictures\\123123123.{Path.GetExtension(item.Foto.FileName)}";
-            using (FileStream fs = File.Create("wwwroot\\" + item.FotoLocale))
-            {
-                item.Foto.CopyTo(fs);
-                fs.Flush();
-            }
             context.Usuarios.Add(item);
             context.SaveChanges();
         }
@@ -61,8 +55,6 @@ namespace CGAP_API.Repository.Usuarios
             itemToUpdate.Perfil = item.Perfil;
             itemToUpdate.PerfilID = item.PerfilID;
             itemToUpdate.Telefone = item.Telefone;
-            itemToUpdate.Foto = item.Foto;
-            itemToUpdate.FotoLocale = item.FotoLocale;
             context.Usuarios.Update(itemToUpdate);
             context.SaveChanges();
         }

@@ -71,7 +71,6 @@ namespace CGAP_API.Migrations
                     Cpf = table.Column<string>(nullable: true),
                     DepartamentoID = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: true),
-                    FotoLocale = table.Column<string>(nullable: true),
                     Nascimento = table.Column<DateTime>(nullable: false),
                     Nome = table.Column<string>(nullable: true),
                     PerfilID = table.Column<int>(nullable: false),

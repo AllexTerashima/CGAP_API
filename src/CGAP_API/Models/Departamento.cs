@@ -19,12 +19,10 @@ namespace CGAP_API.Models
         public string Estado { get; set; }
 
         public string Cidade { get; set; }
-
-        [NotMapped]
-        public ICollection<Sala> Salas { get; set; }
-
-        [NotMapped]
-        public ICollection<Usuario> Usuarios { get; set; }
+        
+        public virtual ICollection<Sala> DepartamentoSalas { get; set; }
+        
+        public virtual ICollection<Usuario> DepartamentoUsuarios { get; set; }
 
     }
 }

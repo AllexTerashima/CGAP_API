@@ -20,28 +20,28 @@ namespace CGAP_API
         {
             builder.Entity<Produto>()
                 .HasOne(p => p.Sala)
-                .WithMany(s => s.Produtos)
+                .WithMany(s => s.SalaProdutos)
                 .HasForeignKey(p => p.SalaID)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("ForeignKey_Produto_Sala");
 
             builder.Entity<Sala>()
                 .HasOne(s => s.Departamento)
-                .WithMany(d => d.Salas)
+                .WithMany(d => d.DepartamentoSalas)
                 .HasForeignKey(s => s.DepartamentoID)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("ForeignKey_Sala_Departamento");
 
             builder.Entity<Usuario>()
                 .HasOne(a => a.Departamento)
-                .WithMany(d => d.Usuarios)
+                .WithMany(d => d.DepartamentoUsuarios)
                 .HasForeignKey(a => a.DepartamentoID)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("ForeignKey_Usuario_Departamento");
 
             builder.Entity<Usuario>()
                 .HasOne(a => a.Perfil)
-                .WithMany(p => p.Usuarios)
+                .WithMany(p => p.PerfilUsuarios)
                 .HasForeignKey(a => a.PerfilID)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("ForeignKey_Usuario_Perfil");

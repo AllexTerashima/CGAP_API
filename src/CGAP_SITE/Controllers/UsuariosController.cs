@@ -60,19 +60,16 @@ namespace CGAP_SITE.Controllers
         [HttpPost]
         public ActionResult Insert(Usuario obj)
         {
-            if (ModelState.IsValid)
-            {
-                string stringData = JsonConvert.SerializeObject(obj);
-                var contentData = new StringContent
-                (stringData, System.Text.Encoding.UTF8,
-                "application/json");
-                HttpResponseMessage response = client.PostAsync
-                ("http://localhost:49820/api/usuarios/", contentData).Result;
-                ViewBag.Message = response.Content.
-                ReadAsStringAsync().Result;
-                return RedirectToAction("Index", obj);
-            }
-            return View(obj);
+           string stringData = JsonConvert.SerializeObject(obj);
+           var contentData = new StringContent
+           (stringData, System.Text.Encoding.UTF8,
+           "application/json");
+           HttpResponseMessage response = client.PostAsync
+           ("http://localhost:49820/api/usuarios/", contentData).Result;
+           ViewBag.Message = response.Content.
+           ReadAsStringAsync().Result;
+           return RedirectToAction("Index", obj);
+           return View(obj);
         }
 
         public ActionResult Update(int id)
