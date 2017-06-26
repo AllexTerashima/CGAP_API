@@ -69,7 +69,6 @@ namespace CGAP_SITE.Controllers
            ViewBag.Message = response.Content.
            ReadAsStringAsync().Result;
            return RedirectToAction("Index", obj);
-           return View(obj);
         }
 
         public ActionResult Update(int id)
@@ -133,7 +132,7 @@ namespace CGAP_SITE.Controllers
             return View(data);
         }
 
-        public IActionResult Login()
+        public ActionResult Login()
         {
             client.BaseAddress = new Uri
             ("http://localhost:49820/");

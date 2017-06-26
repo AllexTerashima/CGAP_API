@@ -15,10 +15,10 @@ namespace CGAP_API.Migrations
                 {
                     DepartamentoID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Cidade = table.Column<string>(nullable: true),
-                    Estado = table.Column<string>(nullable: true),
-                    Nome = table.Column<string>(nullable: true),
-                    Pais = table.Column<string>(nullable: true)
+                    Cidade = table.Column<string>(nullable: false),
+                    Estado = table.Column<string>(nullable: false),
+                    Nome = table.Column<string>(nullable: false),
+                    Pais = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,7 +33,7 @@ namespace CGAP_API.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Auditorar = table.Column<bool>(nullable: false),
                     Emitir = table.Column<bool>(nullable: false),
-                    Nome = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: false),
                     Receber = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -48,8 +48,8 @@ namespace CGAP_API.Migrations
                     SalaID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DepartamentoID = table.Column<int>(nullable: false),
-                    Nome = table.Column<string>(nullable: true),
-                    Tag = table.Column<string>(nullable: true)
+                    Nome = table.Column<string>(nullable: false),
+                    Tag = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,15 +68,15 @@ namespace CGAP_API.Migrations
                 {
                     UsuarioID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Cpf = table.Column<string>(nullable: true),
+                    Cpf = table.Column<string>(nullable: false),
                     DepartamentoID = table.Column<int>(nullable: false),
-                    Email = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: false),
                     Nascimento = table.Column<DateTime>(nullable: false),
-                    Nome = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: false),
                     PerfilID = table.Column<int>(nullable: false),
-                    Rg = table.Column<string>(nullable: true),
-                    Senha = table.Column<string>(nullable: true),
-                    Telefone = table.Column<string>(nullable: true)
+                    Rg = table.Column<string>(nullable: false),
+                    Senha = table.Column<string>(nullable: false),
+                    Telefone = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,10 +101,10 @@ namespace CGAP_API.Migrations
                 {
                     ProdutoID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Marca = table.Column<string>(nullable: true),
+                    Marca = table.Column<string>(nullable: false),
                     SalaID = table.Column<int>(nullable: false),
-                    Tag = table.Column<string>(nullable: true),
-                    Tipo = table.Column<string>(nullable: true),
+                    Tag = table.Column<string>(nullable: false),
+                    Tipo = table.Column<string>(nullable: false),
                     Valor = table.Column<float>(nullable: false)
                 },
                 constraints: table =>

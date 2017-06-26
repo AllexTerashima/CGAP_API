@@ -8,7 +8,7 @@ using CGAP_API;
 namespace CGAP_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170623212343_init")]
+    [Migration("20170626202105_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,13 +22,17 @@ namespace CGAP_API.Migrations
                     b.Property<int>("DepartamentoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Cidade");
+                    b.Property<string>("Cidade")
+                        .IsRequired();
 
-                    b.Property<string>("Estado");
+                    b.Property<string>("Estado")
+                        .IsRequired();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("Pais");
+                    b.Property<string>("Pais")
+                        .IsRequired();
 
                     b.HasKey("DepartamentoID");
 
@@ -44,7 +48,8 @@ namespace CGAP_API.Migrations
 
                     b.Property<bool>("Emitir");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.Property<bool>("Receber");
 
@@ -58,13 +63,16 @@ namespace CGAP_API.Migrations
                     b.Property<int>("ProdutoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Marca");
+                    b.Property<string>("Marca")
+                        .IsRequired();
 
                     b.Property<int>("SalaID");
 
-                    b.Property<string>("Tag");
+                    b.Property<string>("Tag")
+                        .IsRequired();
 
-                    b.Property<string>("Tipo");
+                    b.Property<string>("Tipo")
+                        .IsRequired();
 
                     b.Property<float>("Valor");
 
@@ -82,9 +90,11 @@ namespace CGAP_API.Migrations
 
                     b.Property<int>("DepartamentoID");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("Tag");
+                    b.Property<string>("Tag")
+                        .IsRequired();
 
                     b.HasKey("SalaID");
 
@@ -98,23 +108,29 @@ namespace CGAP_API.Migrations
                     b.Property<int>("UsuarioID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Cpf");
+                    b.Property<string>("Cpf")
+                        .IsRequired();
 
                     b.Property<int>("DepartamentoID");
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
                     b.Property<DateTime>("Nascimento");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.Property<int>("PerfilID");
 
-                    b.Property<string>("Rg");
+                    b.Property<string>("Rg")
+                        .IsRequired();
 
-                    b.Property<string>("Senha");
+                    b.Property<string>("Senha")
+                        .IsRequired();
 
-                    b.Property<string>("Telefone");
+                    b.Property<string>("Telefone")
+                        .IsRequired();
 
                     b.HasKey("UsuarioID");
 

@@ -50,7 +50,7 @@ namespace CGAP_API
         }
 
         public ApplicationDbContext() { }
-        public DbSet<Produto> Products { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
         public DbSet<Sala> Salas { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }

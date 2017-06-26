@@ -6,30 +6,30 @@ using CGAP_API.Models;
 
 namespace CGAP_API.Repository.Products
 {
-    public class ProductsRepository : IProductsRepository
+    public class ProdutosRepository : IProdutosRepository
     {
 
         ApplicationDbContext context;
-        public ProductsRepository(ApplicationDbContext _context)
+        public ProdutosRepository(ApplicationDbContext _context)
         {
             context = _context;
         }
 
         public void Add(Produto item)
         {
-            context.Products.Add(item);
+            context.Produtos.Add(item);
             context.SaveChanges();
         }
 
         public Produto Find(int id)
         {
-            var item = context.Products.SingleOrDefault(p => p.ProdutoID == id);
+            var item = context.Produtos.SingleOrDefault(p => p.ProdutoID == id);
             return item;
         }
 
         public IEnumerable<Produto> GetAll()
         {
-            return context.Products.ToList();
+            return context.Produtos.ToList();
         }
 
         public void Remove(int Id)
@@ -37,7 +37,7 @@ namespace CGAP_API.Repository.Products
             var item = Find(Id);
             if (item != null)
             {
-                context.Products.Remove(item);
+                context.Produtos.Remove(item);
                 context.SaveChanges();
             }
         }
@@ -48,9 +48,9 @@ namespace CGAP_API.Repository.Products
             itemToUpdate.Tag = item.Tag;
             itemToUpdate.Tipo = item.Tipo;
             itemToUpdate.Valor = item.Valor;
-            itemToUpdate.Sala = item.Sala;
+            //itemToUpdate.Sala = item.Sala;
             itemToUpdate.SalaID = item.SalaID;
-            context.Products.Update(itemToUpdate);
+            context.Produtos.Update(itemToUpdate);
             context.SaveChanges();
         }
     }

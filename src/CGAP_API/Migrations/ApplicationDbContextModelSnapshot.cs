@@ -21,13 +21,17 @@ namespace CGAP_API.Migrations
                     b.Property<int>("DepartamentoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Cidade");
+                    b.Property<string>("Cidade")
+                        .IsRequired();
 
-                    b.Property<string>("Estado");
+                    b.Property<string>("Estado")
+                        .IsRequired();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("Pais");
+                    b.Property<string>("Pais")
+                        .IsRequired();
 
                     b.HasKey("DepartamentoID");
 
@@ -43,7 +47,8 @@ namespace CGAP_API.Migrations
 
                     b.Property<bool>("Emitir");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
                     b.Property<bool>("Receber");
 
@@ -57,13 +62,17 @@ namespace CGAP_API.Migrations
                     b.Property<int>("ProdutoID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Marca");
+                    b.Property<string>("Marca")
+                        .IsRequired();
 
-                    b.Property<int>("SalaID");
+                    b.Property<int>("SalaID")
+                        .IsRequired();
 
-                    b.Property<string>("Tag");
+                    b.Property<string>("Tag")
+                        .IsRequired();
 
-                    b.Property<string>("Tipo");
+                    b.Property<string>("Tipo")
+                        .IsRequired();
 
                     b.Property<float>("Valor");
 
@@ -71,7 +80,7 @@ namespace CGAP_API.Migrations
 
                     b.HasIndex("SalaID");
 
-                    b.ToTable("Products");
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("CGAP_API.Models.Sala", b =>
@@ -79,11 +88,14 @@ namespace CGAP_API.Migrations
                     b.Property<int>("SalaID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("DepartamentoID");
+                    b.Property<int>("DepartamentoID")
+                        .IsRequired();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<string>("Tag");
+                    b.Property<string>("Tag")
+                        .IsRequired();
 
                     b.HasKey("SalaID");
 
@@ -97,23 +109,32 @@ namespace CGAP_API.Migrations
                     b.Property<int>("UsuarioID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Cpf");
+                    b.Property<string>("Cpf")
+                        .IsRequired();
 
-                    b.Property<int>("DepartamentoID");
+                    b.Property<int>("DepartamentoID")
+                        .IsRequired();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired();
 
-                    b.Property<DateTime>("Nascimento");
+                    b.Property<DateTime>("Nascimento")
+                        .IsRequired();
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome")
+                        .IsRequired();
 
-                    b.Property<int>("PerfilID");
+                    b.Property<int>("PerfilID")
+                        .IsRequired();
 
-                    b.Property<string>("Rg");
+                    b.Property<string>("Rg")
+                        .IsRequired();
 
-                    b.Property<string>("Senha");
+                    b.Property<string>("Senha")
+                        .IsRequired();
 
-                    b.Property<string>("Telefone");
+                    b.Property<string>("Telefone")
+                        .IsRequired();
 
                     b.HasKey("UsuarioID");
 

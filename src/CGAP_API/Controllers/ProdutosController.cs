@@ -6,25 +6,25 @@ using System.Collections.Generic;
 namespace CGAP_API.Controllers
 {
     [Route("api/[controller]")]
-    public class ProductsController : Controller
+    public class ProdutosController : Controller
     {
-        public IProductsRepository ProductsRepo { get; set; }
+        public IProdutosRepository ProdutosRepo { get; set; }
 
-        public ProductsController(IProductsRepository _repo)
+        public ProdutosController(IProdutosRepository _repo)
         {
-            ProductsRepo = _repo;
+            ProdutosRepo = _repo;
         }
 
         [HttpGet]
         public IEnumerable<Produto> GetAll()
         {
-            return ProductsRepo.GetAll();
+            return ProdutosRepo.GetAll();
         }
 
         [HttpGet("{id}", Name = "GetProducts")]
         public IActionResult GetById(int id)
         {
-            var item = ProductsRepo.Find(id);
+            var item = ProdutosRepo.Find(id);
             if (item == null)
             {
                 return NotFound();
@@ -39,7 +39,7 @@ namespace CGAP_API.Controllers
             {
                 return BadRequest();
             }
-            ProductsRepo.Add(item);
+            ProdutosRepo.Add(item);
             return CreatedAtRoute("GetProducts", new { Controller = "Products", id = item.ProdutoID }, item);
         }
 
@@ -50,19 +50,19 @@ namespace CGAP_API.Controllers
             {
                 return BadRequest();
             }
-            var itemToUpdate = ProductsRepo.Find(id);
+            var itemToUpdate = ProdutosRepo.Find(id);
             if (itemToUpdate == null)
             {
                 return NotFound();
             }
-            ProductsRepo.Update(itemToUpdate, item);
+            ProdutosRepo.Update(itemToUpdate, item);
             return new NoContentResult();
         }
 
         [HttpPost("{id}")]
         public void Delete(int id)
         {
-            ProductsRepo.Remove(id);
+            ProdutosRepo.Remove(id);
         }
     }
 }

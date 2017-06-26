@@ -38,20 +38,26 @@ namespace CGAP_API.Repository.Perfis
             var item = Find(Id);
             if (item != null)
             {
-                context.Perfis.Remove(item);
-                context.SaveChanges();
+                //if (item.PerfilUsuarios == null)
+                //{
+                    context.Perfis.Remove(item);
+                    context.SaveChanges();
+                //}
             }
         }
 
         public void Update(Perfil itemToUpdate, Perfil item)
         {
-            itemToUpdate.Auditorar = item.Auditorar;
-            itemToUpdate.Emitir = item.Emitir;
-            itemToUpdate.Nome = item.Nome;
-            itemToUpdate.Receber = item.Receber;
-            itemToUpdate.PerfilUsuarios = item.PerfilUsuarios;
-            context.Perfis.Update(itemToUpdate);
-            context.SaveChanges();
+            //if (itemToUpdate.PerfilUsuarios == null)
+            //{
+                itemToUpdate.Auditorar = item.Auditorar;
+                itemToUpdate.Emitir = item.Emitir;
+                itemToUpdate.Nome = item.Nome;
+                itemToUpdate.Receber = item.Receber;
+                //itemToUpdate.PerfilUsuarios = item.PerfilUsuarios;
+                context.Perfis.Update(itemToUpdate);
+                context.SaveChanges();
+            //}
         }
     }
 }

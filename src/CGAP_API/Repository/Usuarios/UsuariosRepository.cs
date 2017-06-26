@@ -49,10 +49,12 @@ namespace CGAP_API.Repository.Usuarios
             itemToUpdate.Cpf = item.Cpf;
             itemToUpdate.Nascimento = item.Nascimento;
             itemToUpdate.Email = item.Email;
-            itemToUpdate.Departamento = item.Departamento;
+            itemToUpdate.Senha = item.Senha;
+            itemToUpdate.ConfirmarSenha = item.ConfirmarSenha;
+            //itemToUpdate.Departamento = item.Departamento;
             itemToUpdate.DepartamentoID = item.DepartamentoID;
             itemToUpdate.Nome = item.Nome;
-            itemToUpdate.Perfil = item.Perfil;
+            //itemToUpdate.Perfil = item.Perfil;
             itemToUpdate.PerfilID = item.PerfilID;
             itemToUpdate.Telefone = item.Telefone;
             context.Usuarios.Update(itemToUpdate);

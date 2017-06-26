@@ -44,7 +44,7 @@ namespace CGAP_API
                     .AddJsonOptions(a => a.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver()); ;
 
             //using Dependency Injection
-            services.AddSingleton<IProductsRepository, ProductsRepository>();
+            services.AddSingleton<IProdutosRepository, ProdutosRepository>();
             services.AddSingleton<IDepartamentosRepository, DepartamentoRepository>();
             services.AddSingleton<IPerfisRepository, PerfisRepository>();
             services.AddSingleton<ISalaRepository, SalaRepository>();

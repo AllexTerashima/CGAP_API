@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CGAP_API.Repository.Products
 {
-    public interface IProductsRepository
+    public interface IProdutosRepository
     {
         void Add(Produto item);
         IEnumerable<Produto> GetAll();

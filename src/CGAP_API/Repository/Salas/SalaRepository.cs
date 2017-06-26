@@ -45,20 +45,26 @@ namespace CGAP_API.Repository.Salas
             var item = Find(Id);
             if (item != null)
             {
-                context.Salas.Remove(item);
-                context.SaveChanges();
+                //if (item.SalaProdutos == null)
+                //{
+                    context.Salas.Remove(item);
+                    context.SaveChanges();
+                //}
             }
         }
 
         public void Update(Sala itemToUpdate, Sala item)
         {
-            itemToUpdate.Nome = item.Nome;
-            itemToUpdate.SalaProdutos = item.SalaProdutos;
-            itemToUpdate.Tag = item.Tag;
-            itemToUpdate.DepartamentoID = item.DepartamentoID;
-            itemToUpdate.Departamento = item.Departamento;
-            context.Salas.Update(itemToUpdate);
-            context.SaveChanges();
+            //if (itemToUpdate.SalaProdutos == null)
+            //{
+                itemToUpdate.Nome = item.Nome;
+                //itemToUpdate.SalaProdutos = item.SalaProdutos;
+                itemToUpdate.Tag = item.Tag;
+                itemToUpdate.DepartamentoID = item.DepartamentoID;
+                //itemToUpdate.Departamento = item.Departamento;
+                context.Salas.Update(itemToUpdate);
+                context.SaveChanges();
+            //}
         }
     }
 }

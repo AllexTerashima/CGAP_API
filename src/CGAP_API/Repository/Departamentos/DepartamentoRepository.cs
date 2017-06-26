@@ -46,20 +46,27 @@ namespace CGAP_API.Repository.Departamentos
             var item = Find(Id);
             if (item != null)
             {
-                context.Departamentos.Remove(item);
-                context.SaveChanges();
+                //if (item.DepartamentoSalas == null && item.DepartamentoUsuarios == null)
+                //{
+                    context.Departamentos.Remove(item);
+                    context.SaveChanges();
+                //}
             }
         }
 
         public void Update(Departamento itemToUpdate, Departamento item)
         {
-            itemToUpdate.Nome = item.Nome;
-            itemToUpdate.Pais = item.Pais;
-            itemToUpdate.Estado = item.Estado;
-            itemToUpdate.Cidade = item.Cidade;
-            itemToUpdate.DepartamentoSalas = item.DepartamentoSalas;
-            itemToUpdate.DepartamentoUsuarios = item.DepartamentoUsuarios;
-            context.SaveChanges();
+            //if (itemToUpdate.DepartamentoSalas == null && itemToUpdate.DepartamentoUsuarios == null)
+            //{
+                itemToUpdate.Nome = item.Nome;
+                itemToUpdate.Pais = item.Pais;
+                itemToUpdate.Estado = item.Estado;
+                itemToUpdate.Cidade = item.Cidade;
+                //itemToUpdate.DepartamentoSalas = item.DepartamentoSalas;
+                //itemToUpdate.DepartamentoUsuarios = item.DepartamentoUsuarios;
+                context.Departamentos.Update(itemToUpdate);
+                context.SaveChanges();
+            //}
         }
     }
 }
