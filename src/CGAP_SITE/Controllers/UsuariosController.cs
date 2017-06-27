@@ -89,7 +89,7 @@ namespace CGAP_SITE.Controllers
             var contentData = new StringContent(stringData,
             System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = client.PutAsync
-            ("http://localhost:49820/api/usuarios/" + obj.UsuarioID,
+            ("http://localhost:49820/api/usuarios/" + obj.Id,
             contentData).Result;
             ViewBag.Message = response.Content.
             ReadAsStringAsync().Result;

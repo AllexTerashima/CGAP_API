@@ -18,27 +18,27 @@ namespace CGAP_API.Repository.Usuarios
 
         public void Add(Usuario item)
         {
-            context.Usuarios.Add(item);
+            context.Users.Add(item);
             context.SaveChanges();
         }
 
-        public Usuario Find(int id)
+        public Usuario Find(string id)
         {
-            var item = context.Usuarios.SingleOrDefault(u => u.UsuarioID == id);
+            var item = context.Users.SingleOrDefault(u => u.Id == id);
             return item;
         }
 
         public IEnumerable<Usuario> GetAll()
         {
-            return context.Usuarios.ToList();
+            return context.Users.ToList();
         }
 
-        public void Remove(int Id)
+        public void Remove(string Id)
         {
             var item = Find(Id);
             if (item != null)
             {
-                context.Usuarios.Remove(item);
+                context.Users.Remove(item);
                 context.SaveChanges();
             }
         }
@@ -49,15 +49,15 @@ namespace CGAP_API.Repository.Usuarios
             itemToUpdate.Cpf = item.Cpf;
             itemToUpdate.Nascimento = item.Nascimento;
             itemToUpdate.Email = item.Email;
-            itemToUpdate.Senha = item.Senha;
-            itemToUpdate.ConfirmarSenha = item.ConfirmarSenha;
+            //itemToUpdate.Password = item.Password;
+            //itemToUpdate.ConfirmarSenha = item.ConfirmarSenha;
             //itemToUpdate.Departamento = item.Departamento;
             itemToUpdate.DepartamentoID = item.DepartamentoID;
             itemToUpdate.Nome = item.Nome;
             //itemToUpdate.Perfil = item.Perfil;
             itemToUpdate.PerfilID = item.PerfilID;
-            itemToUpdate.Telefone = item.Telefone;
-            context.Usuarios.Update(itemToUpdate);
+            itemToUpdate.PhoneNumber = item.PhoneNumber;
+            context.Users.Update(itemToUpdate);
             context.SaveChanges();
         }
     }

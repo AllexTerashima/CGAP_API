@@ -96,7 +96,7 @@ namespace CGAP_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Produtos",
                 columns: table => new
                 {
                     ProdutoID = table.Column<int>(nullable: false)
@@ -109,7 +109,7 @@ namespace CGAP_API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.ProdutoID);
+                    table.PrimaryKey("PK_Produtos", x => x.ProdutoID);
                     table.ForeignKey(
                         name: "ForeignKey_Produto_Sala",
                         column: x => x.SalaID,
@@ -119,8 +119,8 @@ namespace CGAP_API.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_SalaID",
-                table: "Products",
+                name: "IX_Produtos_SalaID",
+                table: "Produtos",
                 column: "SalaID");
 
             migrationBuilder.CreateIndex(
@@ -142,7 +142,7 @@ namespace CGAP_API.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Produtos");
 
             migrationBuilder.DropTable(
                 name: "Usuarios");

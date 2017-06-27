@@ -7,8 +7,8 @@ namespace CGAP_API.Repository.Usuarios
     {
         void Add(Usuario item);
         IEnumerable<Usuario> GetAll();
-        Usuario Find(int key);
-        void Remove(int Id);
+        Usuario Find(string key);
+        void Remove(string Id);
         void Update(Usuario itemToUpdate, Usuario item);
     }
 }

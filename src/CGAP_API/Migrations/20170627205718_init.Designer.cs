@@ -8,7 +8,7 @@ using CGAP_API;
 namespace CGAP_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170626202105_init")]
+    [Migration("20170627205718_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,7 +80,7 @@ namespace CGAP_API.Migrations
 
                     b.HasIndex("SalaID");
 
-                    b.ToTable("Products");
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("CGAP_API.Models.Sala", b =>

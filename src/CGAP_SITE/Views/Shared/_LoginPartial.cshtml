@@ -1,6 +1,15 @@
 ﻿<ul class="nav navbar-nav navbar-right">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li>
+            <a asp-area="" asp-controller="Account" asp-action="Login">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout
+            </a>
+        </li>
+
+    }
     <li><a asp-area="" asp-controller="Usuarios" asp-action="Insert">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Cadastrar</a></li>
-    <li><a asp-area="" asp-controller="Usuarios" asp-action="Login">
+    <li><a asp-area="" asp-controller="Account" asp-action="Login">
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login</a></li>
 </ul>

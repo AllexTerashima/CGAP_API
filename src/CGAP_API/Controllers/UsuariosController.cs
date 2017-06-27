@@ -29,7 +29,7 @@ namespace CGAP_API.Controllers
 
         // GET api/values/5
         [HttpGet("{id}", Name = "GetUsuarios")]
-        public IActionResult GetById(int id)
+        public IActionResult GetById(string id)
         {
             var item = UsuariosRepo.Find(id);
             if(item == null)
@@ -49,7 +49,7 @@ namespace CGAP_API.Controllers
                 return BadRequest();
             }
                UsuariosRepo.Add(item);
-return CreatedAtRoute("GetUsuarios", new { Controller = "Usuarios", id = item.UsuarioID }, item);
+return CreatedAtRoute("GetUsuarios", new { Controller = "Usuarios", id = item.Id }, item);
            
         }
 
@@ -72,7 +72,7 @@ return CreatedAtRoute("GetUsuarios", new { Controller = "Usuarios", id = item.Us
 
         // DELETE api/values/5
         [HttpPost("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
             UsuariosRepo.Remove(id);
         }

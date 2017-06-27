@@ -1,2 +1,8 @@
-﻿@using CGAP_SITE
+﻿@using Microsoft.AspNetCore.Identity    
+@using Microsoft.AspNetCore.Http
+@using CGAP_SITE
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using CGAP_SITE.Models
+@inject SignInManager<Usuario> SignInManager
+@inject UserManager<Usuario> UserManager
+@inject IHttpContextAccessor HttpContextAccessor

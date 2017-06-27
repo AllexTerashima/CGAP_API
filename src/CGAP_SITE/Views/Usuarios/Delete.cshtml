@@ -41,10 +41,10 @@
             @Html.DisplayFor(model => model.Cpf)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Telefone)
+            @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Telefone)
+            @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
         <dt>
             @Html.DisplayName("Perfil")
@@ -61,7 +61,7 @@
     </dl>
 
     <form asp-action="ConfirmDelete">
-        <input type="hidden" asp-for="UsuarioID" />
+        <input type="hidden" asp-for="Id" />
         <div class="form-actions no-color col-md-offset-1">
             <button type="submit" value="Excluir" class="btn btn-default">
                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Excluir

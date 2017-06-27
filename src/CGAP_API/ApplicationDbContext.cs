@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CGAP_API 
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<Usuario>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             :base(options)
@@ -53,7 +53,7 @@ namespace CGAP_API
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Sala> Salas { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+        //public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
 
     }
