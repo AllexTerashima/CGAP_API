@@ -9,17 +9,15 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CGAP_SITE.Models
 {
-    public class Usuario : IdentityUser
+    public class Usuario
     {
-        public Usuario() { }
-
-        /*[Key]
-        public int UsuarioID { get; set; }*/
+        [Key]
+        public int UsuarioID { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome { get; set; }
 
-        /*[Required(ErrorMessage = "Campo Obrigatório")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
@@ -30,7 +28,7 @@ namespace CGAP_SITE.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         [Compare("Senha", ErrorMessage = "As senhas não conferem")]
         [DataType(DataType.Password)]
-        public string ConfirmarSenha { get; set; }*/
+        public string ConfirmarSenha { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         [DataType(DataType.Date)]
@@ -42,21 +40,19 @@ namespace CGAP_SITE.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Cpf { get; set; }
 
-        /*[Required(ErrorMessage = "Campo Obrigatório")]
-        public string Telefone { get; set; }*/
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        public string Telefone { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int DepartamentoID { get; set; }
 
-        [ForeignKey("DepartamentoID")]
-        [InverseProperty("DepartamentoUsuarios")]
-        public virtual Departamento Departamento { get; set; }
+        [NotMapped]
+        public Departamento Departamento { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int PerfilID { get; set; }
 
-        [ForeignKey("PerfilID")]
-        [InverseProperty("PerfilUsuarios")]
-        public virtual Perfil Perfil { get; set; }
+        [NotMapped]
+        public Perfil Perfil { get; set; }
     }
 }
