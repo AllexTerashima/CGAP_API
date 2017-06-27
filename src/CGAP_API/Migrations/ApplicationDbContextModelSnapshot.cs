@@ -65,8 +65,7 @@ namespace CGAP_API.Migrations
                     b.Property<string>("Marca")
                         .IsRequired();
 
-                    b.Property<int>("SalaID")
-                        .IsRequired();
+                    b.Property<int>("SalaID");
 
                     b.Property<string>("Tag")
                         .IsRequired();
@@ -88,8 +87,7 @@ namespace CGAP_API.Migrations
                     b.Property<int>("SalaID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("DepartamentoID")
-                        .IsRequired();
+                    b.Property<int>("DepartamentoID");
 
                     b.Property<string>("Nome")
                         .IsRequired();
@@ -112,20 +110,17 @@ namespace CGAP_API.Migrations
                     b.Property<string>("Cpf")
                         .IsRequired();
 
-                    b.Property<int>("DepartamentoID")
-                        .IsRequired();
+                    b.Property<int>("DepartamentoID");
 
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<DateTime>("Nascimento")
-                        .IsRequired();
+                    b.Property<DateTime>("Nascimento");
 
                     b.Property<string>("Nome")
                         .IsRequired();
 
-                    b.Property<int>("PerfilID")
-                        .IsRequired();
+                    b.Property<int>("PerfilID");
 
                     b.Property<string>("Rg")
                         .IsRequired();
