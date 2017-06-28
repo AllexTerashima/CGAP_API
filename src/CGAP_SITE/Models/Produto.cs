@@ -9,6 +9,8 @@ namespace CGAP_SITE.Models
 {
     public class Produto
     {
+        public Produto() { }
+
         [Key]
         public int ProdutoID { get; set; }
 
@@ -28,7 +30,8 @@ namespace CGAP_SITE.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int SalaID { get; set; }
 
-        [NotMapped]
-        public Sala Sala { get; set; }
+        [ForeignKey("SalaID")]
+        [InverseProperty("SalaProdutos")]
+        public virtual Sala Sala { get; set; }
     }
 }

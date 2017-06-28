@@ -8,7 +8,7 @@ using CGAP_API;
 namespace CGAP_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170627213206_init")]
+    [Migration("20170628163138_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

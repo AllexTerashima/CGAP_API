@@ -11,6 +11,8 @@ namespace CGAP_SITE.Models
 {
     public class Usuario
     {
+        public Usuario() { }
+
         [Key]
         public int UsuarioID { get; set; }
 
@@ -46,13 +48,15 @@ namespace CGAP_SITE.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int DepartamentoID { get; set; }
 
-        [NotMapped]
-        public Departamento Departamento { get; set; }
+        [ForeignKey("DepartamentoID")]
+        [InverseProperty("DepartamentoUsuarios")]
+        public virtual Departamento Departamento { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int PerfilID { get; set; }
 
-        [NotMapped]
-        public Perfil Perfil { get; set; }
+        [ForeignKey("PerfilID")]
+        [InverseProperty("PerfilUsuarios")]
+        public virtual Perfil Perfil { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,20 +10,24 @@ namespace CGAP_SITE.Models
 {
     public class Perfil
     {
+        public Perfil()
+        {
+            PerfilUsuarios = new List<Usuario>();
+        }
+
         [Key]
         public int PerfilID { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome { get; set; }
-        
+
         public bool Emitir { get; set; }
-        
+
         public bool Receber { get; set; }
-        
+
         public bool Auditorar { get; set; }
 
-        [NotMapped]
-        public ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Usuario> PerfilUsuarios { get; set; }
 
     }
 }

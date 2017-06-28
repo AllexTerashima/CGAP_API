@@ -24,7 +24,7 @@ namespace CGAP_SITE.Controllers
             new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
             HttpResponseMessage response = client.GetAsync
-            ("/api/products").Result;
+            ("/api/produtos").Result;
             string stringData = response.Content.
             ReadAsStringAsync().Result;
             List<Produto> data = JsonConvert.DeserializeObject
@@ -45,7 +45,7 @@ namespace CGAP_SITE.Controllers
             (stringData, System.Text.Encoding.UTF8,
             "application/json");
             HttpResponseMessage response = client.PostAsync
-            ("http://localhost:49820/api/products/", contentData).Result;
+            ("http://localhost:49820/api/produtos/", contentData).Result;
             ViewBag.Message = response.Content.
             ReadAsStringAsync().Result;
             return RedirectToAction("Index", obj);
@@ -54,7 +54,7 @@ namespace CGAP_SITE.Controllers
         public ActionResult Update(int id)
         {
             HttpResponseMessage response =
-            client.GetAsync("http://localhost:49820/api/products/" + id).Result;
+            client.GetAsync("http://localhost:49820/api/produtos/" + id).Result;
             string stringData = response.Content.
             ReadAsStringAsync().Result;
             Produto data = JsonConvert.
@@ -69,7 +69,7 @@ namespace CGAP_SITE.Controllers
             var contentData = new StringContent(stringData,
             System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = client.PutAsync
-            ("http://localhost:49820/api/products/" + obj.ProdutoID,
+            ("http://localhost:49820/api/produtos/" + obj.ProdutoID,
             contentData).Result;
             ViewBag.Message = response.Content.
             ReadAsStringAsync().Result;
@@ -79,7 +79,7 @@ namespace CGAP_SITE.Controllers
         public ActionResult Delete(int id)
         {
             HttpResponseMessage response =
-            client.GetAsync("http://localhost:49820/api/products/" + id).Result;
+            client.GetAsync("http://localhost:49820/api/produtos/" + id).Result;
             string stringData = response.Content.
             ReadAsStringAsync().Result;
             Produto data = JsonConvert.
@@ -93,7 +93,7 @@ namespace CGAP_SITE.Controllers
         public ActionResult ConfirmDelete(Produto obj)
         {
             HttpResponseMessage response =
-            client.DeleteAsync("http://localhost:49820/api/products/"
+            client.DeleteAsync("http://localhost:49820/api/produtos/"
             + obj.ProdutoID).Result;
             TempData["Message"] =
             response.Content.ReadAsStringAsync().Result;
@@ -103,7 +103,7 @@ namespace CGAP_SITE.Controllers
         public ActionResult Details(int id)
         {
             HttpResponseMessage response =
-            client.GetAsync("http://localhost:49820/api/products/" + id).Result;
+            client.GetAsync("http://localhost:49820/api/produtos/" + id).Result;
             string stringData = response.Content.
             ReadAsStringAsync().Result;
             Produto data = JsonConvert.

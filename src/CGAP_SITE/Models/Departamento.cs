@@ -9,6 +9,12 @@ namespace CGAP_SITE.Models
 {
     public class Departamento
     {
+        public Departamento()
+        {
+            DepartamentoSalas = new List<Sala>();
+            DepartamentoUsuarios = new List<Usuario>();
+        }
+
         [Key]
         public int DepartamentoID { get; set; }
 
@@ -24,10 +30,8 @@ namespace CGAP_SITE.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Cidade { get; set; }
 
-        [NotMapped]
-        public ICollection<Sala> Salas { get; set; }
+        public virtual ICollection<Sala> DepartamentoSalas { get; set; }
 
-        [NotMapped]
-        public ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Usuario> DepartamentoUsuarios { get; set; }
     }
 }

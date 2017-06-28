@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,6 +10,11 @@ namespace CGAP_SITE.Models
 {
     public class Sala
     {
+        public Sala()
+        {
+            SalaProdutos = new List<Produto>();
+        }
+
         [Key]
         public int SalaID { get; set; }
 
@@ -21,10 +27,10 @@ namespace CGAP_SITE.Models
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int DepartamentoID { get; set; }
 
-        [NotMapped]
-        public Departamento Departamento { get; set; }
+        [ForeignKey("DepartamentoID")]
+        [InverseProperty("DepartamentoSalas")]
+        public virtual Departamento Departamento { get; set; }
 
-        [NotMapped]
-        public ICollection<Produto> Produtos { get; set; }
+        public virtual ICollection<Produto> SalaProdutos { get; set; }
     }
 }
