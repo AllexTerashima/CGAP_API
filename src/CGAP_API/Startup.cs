@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using CGAP_API.Repository.Departamentos;
-using CGAP_API.Repository.Perfis;
 using CGAP_API.Repository.Products;
 using CGAP_API.Repository.Salas;
 using CGAP_API.Repository.Usuarios;
@@ -47,7 +46,6 @@ namespace CGAP_API
             //using Dependency Injection
             services.AddSingleton<IProdutosRepository, ProdutosRepository>();
             services.AddSingleton<IDepartamentosRepository, DepartamentoRepository>();
-            services.AddSingleton<IPerfisRepository, PerfisRepository>();
             services.AddSingleton<ISalaRepository, SalaRepository>();
             services.AddSingleton<IUsuariosRepository, UsuariosRepository>();
             services.AddCors();

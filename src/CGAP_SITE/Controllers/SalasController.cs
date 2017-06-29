@@ -71,9 +71,10 @@ namespace CGAP_SITE.Controllers
             HttpResponseMessage response =
             client.GetAsync("http://localhost:49820/api/salas/" + id).Result;
             string stringData = response.Content.
-                ReadAsStringAsync().Result;
+            ReadAsStringAsync().Result;
             Sala data = JsonConvert.
-                DeserializeObject<Sala>(stringData);
+            DeserializeObject<Sala>(stringData);
+            ViewData["DepartamentoID"] = new SelectList(getDepartamentos2(), "DepartamentoID", "Nome");
             return View(data);
         }
 
@@ -108,7 +109,7 @@ namespace CGAP_SITE.Controllers
         {
             HttpResponseMessage response =
             client.DeleteAsync("http://localhost:49820/api/salas/"
-            + obj.DepartamentoID).Result;
+            + obj.SalaID).Result;
             TempData["Message"] =
             response.Content.ReadAsStringAsync().Result;
             return RedirectToAction("Index");
@@ -118,6 +119,16 @@ namespace CGAP_SITE.Controllers
         {
             HttpResponseMessage response = client.GetAsync
             ("/api/departamentos").Result;
+            string stringData = response.Content.
+            ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject
+            <List<Departamento>>(stringData);
+        }
+
+        private List<Departamento> getDepartamentos2()
+        {
+            HttpResponseMessage response = client.GetAsync
+            ("http://localhost:49820/api/departamentos").Result;
             string stringData = response.Content.
             ReadAsStringAsync().Result;
             return JsonConvert.DeserializeObject

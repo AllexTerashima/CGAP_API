@@ -70,7 +70,7 @@ namespace CGAP_API.Controllers
         }
 
         // DELETE api/values/5
-        [HttpPost("{id}")]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             SalaRepo.Remove(id);

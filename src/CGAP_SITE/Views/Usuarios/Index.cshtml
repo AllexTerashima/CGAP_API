@@ -13,8 +13,8 @@
 <select id='filter-usuarios' style='display:inline-block' onchange='filterText()'>
     <option disabled selected>Pesquisar por</option>
     <option value='0'>Nome</option>
-    <option value='1'>CPF</option>
-    <option value='2'>Perfil</option>
+    <option value='1'>E-mail</option>
+    <option value='2'>CPF</option>
     <option value='3'>Departamento</option>
 </select>
 <input type="text" id="input-usuarios" onkeyup="myFunction()" placeholder="Pesquisar...">
@@ -24,13 +24,13 @@
             <th onclick="sortTable(0)">
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
-            <th onclick="sortTable(0)">
-                @Html.DisplayNameFor(model => model.Cpf)
-            </th>
             <th onclick="sortTable(1)">
-               @Html.DisplayName("Perfil")
+                @Html.DisplayName("E-mail")
             </th>
-            <th onclick="sortTable(1)">
+            <th onclick="sortTable(2)">
+                @Html.DisplayName("CPF")
+            </th>
+            <th onclick="sortTable(3)">
                 @Html.DisplayName("Departamento")
             </th>
             <th></th>
@@ -44,10 +44,10 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cpf)
+                    @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Perfil.Nome)
+                    @Html.DisplayFor(modelItem => item.Cpf)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Departamento.Nome)

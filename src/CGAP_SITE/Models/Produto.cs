@@ -29,9 +29,6 @@ namespace CGAP_SITE.Models
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int SalaID { get; set; }
-
-        [ForeignKey("SalaID")]
-        [InverseProperty("SalaProdutos")]
         public virtual Sala Sala { get; set; }
     }
 }

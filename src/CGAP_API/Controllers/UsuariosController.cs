@@ -71,7 +71,7 @@ return CreatedAtRoute("GetUsuarios", new { Controller = "Usuarios", id = item.Us
         }
 
         // DELETE api/values/5
-        [HttpPost("{id}")]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             UsuariosRepo.Remove(id);

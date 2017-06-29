@@ -8,8 +8,8 @@ using CGAP_API;
 namespace CGAP_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170628212206_FirstUse")]
-    partial class FirstUse
+    [Migration("20170629211953_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,25 +37,6 @@ namespace CGAP_API.Migrations
                     b.HasKey("DepartamentoID");
 
                     b.ToTable("Departamentos");
-                });
-
-            modelBuilder.Entity("CGAP_API.Models.Perfil", b =>
-                {
-                    b.Property<int>("PerfilID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("Auditorar");
-
-                    b.Property<bool>("Emitir");
-
-                    b.Property<string>("Nome")
-                        .IsRequired();
-
-                    b.Property<bool>("Receber");
-
-                    b.HasKey("PerfilID");
-
-                    b.ToTable("Perfis");
                 });
 
             modelBuilder.Entity("CGAP_API.Models.Produto", b =>
@@ -108,6 +89,8 @@ namespace CGAP_API.Migrations
                     b.Property<int>("UsuarioID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Auditorar");
+
                     b.Property<string>("Cpf")
                         .IsRequired();
 
@@ -116,12 +99,14 @@ namespace CGAP_API.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
+                    b.Property<bool>("Emitir");
+
                     b.Property<DateTime>("Nascimento");
 
                     b.Property<string>("Nome")
                         .IsRequired();
 
-                    b.Property<int>("PerfilID");
+                    b.Property<bool>("Receber");
 
                     b.Property<string>("Rg")
                         .IsRequired();
@@ -136,8 +121,6 @@ namespace CGAP_API.Migrations
 
                     b.HasIndex("DepartamentoID");
 
-                    b.HasIndex("PerfilID");
-
                     b.ToTable("Usuarios");
                 });
 
@@ -145,29 +128,21 @@ namespace CGAP_API.Migrations
                 {
                     b.HasOne("CGAP_API.Models.Sala", "Sala")
                         .WithMany()
-                        .HasForeignKey("SalaID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SalaID");
                 });
 
             modelBuilder.Entity("CGAP_API.Models.Sala", b =>
                 {
                     b.HasOne("CGAP_API.Models.Departamento", "Departamento")
                         .WithMany()
-                        .HasForeignKey("DepartamentoID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("DepartamentoID");
                 });
 
             modelBuilder.Entity("CGAP_API.Models.Usuario", b =>
                 {
                     b.HasOne("CGAP_API.Models.Departamento", "Departamento")
                         .WithMany()
-                        .HasForeignKey("DepartamentoID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("CGAP_API.Models.Perfil", "Perfil")
-                        .WithMany()
-                        .HasForeignKey("PerfilID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("DepartamentoID");
                 });
         }
     }

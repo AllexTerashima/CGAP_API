@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label asp-for="Tag" class="col-md-2 control-label"></label>
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-10">
                 <input asp-for="Tag" class="form-control" />
                 <span asp-validation-for="Tag" class="text-danger" />
             </div>
@@ -35,7 +35,9 @@
         <div class="form-group">
             <label asp-for="Sala" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <select asp-for="SalaID" class="form-control" asp-items="ViewBag.SalaID"></select>
+                <select asp-for="SalaID" class="form-control" asp-items="ViewBag.SalaID">
+                    <option value="">-- Selecione a Sala --</option>
+                </select>
             </div>
         </div>
         <div class="form-group">

@@ -18,12 +18,17 @@ namespace CGAP_API
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            foreach(var relatioship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relatioship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
+
             base.OnModelCreating(builder);
         }
 
+        public ApplicationDbContext() { }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Sala> Salas { get; set; }
-        public DbSet<Perfil> Perfis { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
 

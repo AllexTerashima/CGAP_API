@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Email" class="col-md-2 control-label"></label>
+            <label asp-for="Email" class="col-md-2 control-label">E-mail</label>
             <div class="col-md-10">
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger" />
@@ -68,15 +68,36 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Perfil" class="col-md-2 control-label"></label>
+            <label asp-for="Departamento" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <select asp-for="PerfilID" class="form-control" asp-items="ViewBag.PerfilID"></select>
+                <select asp-for="DepartamentoID" class="form-control" asp-items="ViewBag.DepartamentoID">
+                    <option value="">-- Selecione o Departamento --</option>
+                </select>
+                <span asp-validation-for="DepartamentoID" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="Departamento" class="col-md-2 control-label"></label>
+            <label asp-for="Auditorar" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <select asp-for="DepartamentoID" class="form-control" asp-items="ViewBag.DepartamentoID"></select>
+                <div class="checkbox">
+                    <input asp-for="Auditorar" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Emitir" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Emitir" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Receber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Receber" />
+                </div>
             </div>
         </div>
         <div class="form-group">

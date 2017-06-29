@@ -59,7 +59,7 @@ namespace CGAP_API.Controllers
             return new NoContentResult();
         }
 
-        [HttpPost("{id}")]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             ProdutosRepo.Remove(id);

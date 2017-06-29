@@ -47,8 +47,10 @@ namespace CGAP_API.Models
         public int DepartamentoID { get; set; }
         public virtual Departamento Departamento { get; set; }
 
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        public int PerfilID { get; set; }
-        public virtual Perfil Perfil { get; set; }
+        public bool Emitir { get; set; }
+
+        public bool Receber { get; set; }
+
+        public bool Auditorar { get; set; }
     }
 }

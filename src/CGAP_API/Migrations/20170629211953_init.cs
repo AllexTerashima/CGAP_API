@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CGAP_API.Migrations
 {
-    public partial class FirstUse : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,22 +26,6 @@ namespace CGAP_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Perfis",
-                columns: table => new
-                {
-                    PerfilID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Auditorar = table.Column<bool>(nullable: false),
-                    Emitir = table.Column<bool>(nullable: false),
-                    Nome = table.Column<string>(nullable: false),
-                    Receber = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Perfis", x => x.PerfilID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Salas",
                 columns: table => new
                 {
@@ -59,7 +43,7 @@ namespace CGAP_API.Migrations
                         column: x => x.DepartamentoID,
                         principalTable: "Departamentos",
                         principalColumn: "DepartamentoID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,12 +52,14 @@ namespace CGAP_API.Migrations
                 {
                     UsuarioID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Auditorar = table.Column<bool>(nullable: false),
                     Cpf = table.Column<string>(nullable: false),
                     DepartamentoID = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: false),
+                    Emitir = table.Column<bool>(nullable: false),
                     Nascimento = table.Column<DateTime>(nullable: false),
                     Nome = table.Column<string>(nullable: false),
-                    PerfilID = table.Column<int>(nullable: false),
+                    Receber = table.Column<bool>(nullable: false),
                     Rg = table.Column<string>(nullable: false),
                     Senha = table.Column<string>(nullable: false),
                     Telefone = table.Column<string>(nullable: false)
@@ -86,13 +72,7 @@ namespace CGAP_API.Migrations
                         column: x => x.DepartamentoID,
                         principalTable: "Departamentos",
                         principalColumn: "DepartamentoID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Usuarios_Perfis_PerfilID",
-                        column: x => x.PerfilID,
-                        principalTable: "Perfis",
-                        principalColumn: "PerfilID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -115,7 +95,7 @@ namespace CGAP_API.Migrations
                         column: x => x.SalaID,
                         principalTable: "Salas",
                         principalColumn: "SalaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -132,11 +112,6 @@ namespace CGAP_API.Migrations
                 name: "IX_Usuarios_DepartamentoID",
                 table: "Usuarios",
                 column: "DepartamentoID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Usuarios_PerfilID",
-                table: "Usuarios",
-                column: "PerfilID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -149,9 +124,6 @@ namespace CGAP_API.Migrations
 
             migrationBuilder.DropTable(
                 name: "Salas");
-
-            migrationBuilder.DropTable(
-                name: "Perfis");
 
             migrationBuilder.DropTable(
                 name: "Departamentos");

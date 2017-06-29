@@ -40,20 +40,7 @@ namespace CGAP_SITE.Controllers
             MediaTypeWithQualityHeaderValue contentType =
             new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
-            HttpResponseMessage response = client.GetAsync
-            ("/api/perfis").Result;
-            string stringData = response.Content.
-            ReadAsStringAsync().Result;
-            List<Perfil> data = JsonConvert.DeserializeObject
-            <List<Perfil>>(stringData);
-            ViewData["PerfilID"] = new SelectList(data, "PerfilID", "Nome");
-            response = client.GetAsync
-            ("/api/departamentos").Result;
-            string stringData2 = response.Content.
-            ReadAsStringAsync().Result;
-            List<Departamento> data2 = JsonConvert.DeserializeObject
-            <List<Departamento>>(stringData2);
-            ViewData["DepartamentoID"] = new SelectList(data2, "DepartamentoID", "Nome");
+            ViewData["DepartamentoID"] = new SelectList(getDepartamentos(), "DepartamentoID", "Nome");
             return View();
         }
 
@@ -79,6 +66,7 @@ namespace CGAP_SITE.Controllers
             ReadAsStringAsync().Result;
             Usuario data = JsonConvert.
             DeserializeObject<Usuario>(stringData);
+            ViewData["DepartamentoID"] = new SelectList(getDepartamentos2(), "DepartamentoID", "Nome");
             return View(data);
         }
 
@@ -113,10 +101,30 @@ namespace CGAP_SITE.Controllers
         {
             HttpResponseMessage response =
             client.DeleteAsync("http://localhost:49820/api/usuarios/"
-            + obj.DepartamentoID).Result;
+            + obj.UsuarioID).Result;
             TempData["Message"] =
             response.Content.ReadAsStringAsync().Result;
             return RedirectToAction("Index");
+        }
+
+        private List<Departamento> getDepartamentos()
+        {
+            HttpResponseMessage response = client.GetAsync
+            ("/api/departamentos").Result;
+            string stringData = response.Content.
+            ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject
+            <List<Departamento>>(stringData);
+        }
+
+        private List<Departamento> getDepartamentos2()
+        {
+            HttpResponseMessage response = client.GetAsync
+            ("http://localhost:49820/api/departamentos").Result;
+            string stringData = response.Content.
+            ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject
+            <List<Departamento>>(stringData);
         }
 
         public ActionResult Details(int id)

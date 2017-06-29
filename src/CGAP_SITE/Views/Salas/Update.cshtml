@@ -28,7 +28,10 @@
         <div class="form-group">
             <label asp-for="Departamento" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <select asp-for="DepartamentoID" class="form-control" asp-items="ViewBag.DepartamentoID"></select>
+                <select asp-for="DepartamentoID" class="form-control" asp-items="ViewBag.DepartamentoID">
+                    <option value="">-- Selecione o Departamento --</option>
+                </select>
+                <span asp-validation-for="DepartamentoID" class="text-danger" />
             </div>
         </div>
         <div class="form-group">

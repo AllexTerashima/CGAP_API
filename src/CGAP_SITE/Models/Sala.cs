@@ -10,11 +10,6 @@ namespace CGAP_SITE.Models
 {
     public class Sala
     {
-        public Sala()
-        {
-            SalaProdutos = new List<Produto>();
-        }
-
         [Key]
         public int SalaID { get; set; }
 
@@ -26,11 +21,7 @@ namespace CGAP_SITE.Models
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int DepartamentoID { get; set; }
-
-        [ForeignKey("DepartamentoID")]
-        [InverseProperty("DepartamentoSalas")]
         public virtual Departamento Departamento { get; set; }
-
-        public virtual ICollection<Produto> SalaProdutos { get; set; }
+        
     }
 }

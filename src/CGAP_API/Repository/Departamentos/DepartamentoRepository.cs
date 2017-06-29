@@ -29,15 +29,6 @@ namespace CGAP_API.Repository.Departamentos
 
         public IEnumerable<Departamento> GetAll()
         {
-            /*List<Departamento> dep = context.Departamentos.ToList();
-            List<Departamento> dep2 = new List<Departamento>();
-            foreach (var dzinho in dep)
-            {
-                dzinho.Salas = null;
-                dep2.Add(dzinho);
-            }
-            return dep2;*/
-
             return context.Departamentos.ToList();
         }
 
@@ -46,27 +37,19 @@ namespace CGAP_API.Repository.Departamentos
             var item = Find(Id);
             if (item != null)
             {
-                //if (item.DepartamentoSalas == null && item.DepartamentoUsuarios == null)
-                //{
-                    context.Departamentos.Remove(item);
-                    context.SaveChanges();
-                //}
+                context.Departamentos.Remove(item);
+                context.SaveChanges();
             }
         }
 
         public void Update(Departamento itemToUpdate, Departamento item)
         {
-            //if (itemToUpdate.DepartamentoSalas == null && itemToUpdate.DepartamentoUsuarios == null)
-            //{
-                itemToUpdate.Nome = item.Nome;
-                itemToUpdate.Pais = item.Pais;
-                itemToUpdate.Estado = item.Estado;
-                itemToUpdate.Cidade = item.Cidade;
-                //itemToUpdate.DepartamentoSalas = item.DepartamentoSalas;
-                //itemToUpdate.DepartamentoUsuarios = item.DepartamentoUsuarios;
-                context.Departamentos.Update(itemToUpdate);
-                context.SaveChanges();
-            //}
+            itemToUpdate.Nome = item.Nome;
+            itemToUpdate.Pais = item.Pais;
+            itemToUpdate.Estado = item.Estado;
+            itemToUpdate.Cidade = item.Cidade;
+            context.Departamentos.Update(itemToUpdate);
+            context.SaveChanges();
         }
     }
 }

@@ -47,16 +47,12 @@ namespace CGAP_SITE.Models
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public int DepartamentoID { get; set; }
-
-        [ForeignKey("DepartamentoID")]
-        [InverseProperty("DepartamentoUsuarios")]
         public virtual Departamento Departamento { get; set; }
 
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        public int PerfilID { get; set; }
+        public bool Emitir { get; set; }
 
-        [ForeignKey("PerfilID")]
-        [InverseProperty("PerfilUsuarios")]
-        public virtual Perfil Perfil { get; set; }
+        public bool Receber { get; set; }
+
+        public bool Auditorar { get; set; }
     }
 }

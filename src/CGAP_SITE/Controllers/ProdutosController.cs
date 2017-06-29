@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using CGAP_SITE.Models;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -34,6 +35,12 @@ namespace CGAP_SITE.Controllers
 
         public ActionResult Insert()
         {
+            client.BaseAddress = new Uri
+            ("http://localhost:49820/");
+            MediaTypeWithQualityHeaderValue contentType =
+            new MediaTypeWithQualityHeaderValue("application/json");
+            client.DefaultRequestHeaders.Accept.Add(contentType);
+            ViewData["SalaID"] = new SelectList(getSalas(), "SalaID", "Nome");
             return View();
         }
 
@@ -59,6 +66,7 @@ namespace CGAP_SITE.Controllers
             ReadAsStringAsync().Result;
             Produto data = JsonConvert.
             DeserializeObject<Produto>(stringData);
+            ViewData["SalaID"] = new SelectList(getSalas2(), "SalaID", "Nome");
             return View(data);
         }
 
@@ -98,6 +106,26 @@ namespace CGAP_SITE.Controllers
             TempData["Message"] =
             response.Content.ReadAsStringAsync().Result;
             return RedirectToAction("Index");
+        }
+
+        private List<Sala> getSalas()
+        {
+            HttpResponseMessage response = client.GetAsync
+            ("/api/salas").Result;
+            string stringData = response.Content.
+            ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject
+            <List<Sala>>(stringData);
+        }
+
+        private List<Sala> getSalas2()
+        {
+            HttpResponseMessage response = client.GetAsync
+            ("http://localhost:49820/api/salas").Result;
+            string stringData = response.Content.
+            ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject
+            <List<Sala>>(stringData);
         }
 
         public ActionResult Details(int id)

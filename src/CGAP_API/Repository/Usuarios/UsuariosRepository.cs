@@ -54,9 +54,10 @@ namespace CGAP_API.Repository.Usuarios
             //itemToUpdate.Departamento = item.Departamento;
             itemToUpdate.DepartamentoID = item.DepartamentoID;
             itemToUpdate.Nome = item.Nome;
-            //itemToUpdate.Perfil = item.Perfil;
-            itemToUpdate.PerfilID = item.PerfilID;
             itemToUpdate.Telefone = item.Telefone;
+            itemToUpdate.Auditorar = item.Auditorar;
+            itemToUpdate.Emitir = item.Emitir;
+            itemToUpdate.Receber = item.Receber;
             context.Usuarios.Update(itemToUpdate);
             context.SaveChanges();
         }
