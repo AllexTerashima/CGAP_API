@@ -9,12 +9,6 @@ namespace CGAP_API.Models
 {
     public class Departamento
     {
-        public Departamento()
-        {
-            DepartamentoSalas = new List<Sala>();
-            DepartamentoUsuarios = new List<Usuario>();
-        }
-
         [Key]
         public int DepartamentoID { get; set; }
 
@@ -29,10 +23,6 @@ namespace CGAP_API.Models
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Cidade { get; set; }
-        
-        public virtual ICollection<Sala> DepartamentoSalas { get; set; }
-        
-        public virtual ICollection<Usuario> DepartamentoUsuarios { get; set; }
 
     }
 }

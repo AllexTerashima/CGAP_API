@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CGAP_API.Migrations
 {
-    public partial class init : Migration
+    public partial class FirstUse : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,11 +55,11 @@ namespace CGAP_API.Migrations
                 {
                     table.PrimaryKey("PK_Salas", x => x.SalaID);
                     table.ForeignKey(
-                        name: "ForeignKey_Sala_Departamento",
+                        name: "FK_Salas_Departamentos_DepartamentoID",
                         column: x => x.DepartamentoID,
                         principalTable: "Departamentos",
                         principalColumn: "DepartamentoID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -82,17 +82,17 @@ namespace CGAP_API.Migrations
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.UsuarioID);
                     table.ForeignKey(
-                        name: "ForeignKey_Usuario_Departamento",
+                        name: "FK_Usuarios_Departamentos_DepartamentoID",
                         column: x => x.DepartamentoID,
                         principalTable: "Departamentos",
                         principalColumn: "DepartamentoID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "ForeignKey_Usuario_Perfil",
+                        name: "FK_Usuarios_Perfis_PerfilID",
                         column: x => x.PerfilID,
                         principalTable: "Perfis",
                         principalColumn: "PerfilID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -111,11 +111,11 @@ namespace CGAP_API.Migrations
                 {
                     table.PrimaryKey("PK_Produtos", x => x.ProdutoID);
                     table.ForeignKey(
-                        name: "ForeignKey_Produto_Sala",
+                        name: "FK_Produtos_Salas_SalaID",
                         column: x => x.SalaID,
                         principalTable: "Salas",
                         principalColumn: "SalaID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

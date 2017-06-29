@@ -8,8 +8,8 @@ using CGAP_API;
 namespace CGAP_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170628163138_init")]
-    partial class init
+    [Migration("20170628212206_FirstUse")]
+    partial class FirstUse
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -144,30 +144,30 @@ namespace CGAP_API.Migrations
             modelBuilder.Entity("CGAP_API.Models.Produto", b =>
                 {
                     b.HasOne("CGAP_API.Models.Sala", "Sala")
-                        .WithMany("SalaProdutos")
+                        .WithMany()
                         .HasForeignKey("SalaID")
-                        .HasConstraintName("ForeignKey_Produto_Sala");
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CGAP_API.Models.Sala", b =>
                 {
                     b.HasOne("CGAP_API.Models.Departamento", "Departamento")
-                        .WithMany("DepartamentoSalas")
+                        .WithMany()
                         .HasForeignKey("DepartamentoID")
-                        .HasConstraintName("ForeignKey_Sala_Departamento");
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CGAP_API.Models.Usuario", b =>
                 {
                     b.HasOne("CGAP_API.Models.Departamento", "Departamento")
-                        .WithMany("DepartamentoUsuarios")
+                        .WithMany()
                         .HasForeignKey("DepartamentoID")
-                        .HasConstraintName("ForeignKey_Usuario_Departamento");
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CGAP_API.Models.Perfil", "Perfil")
-                        .WithMany("PerfilUsuarios")
+                        .WithMany()
                         .HasForeignKey("PerfilID")
-                        .HasConstraintName("ForeignKey_Usuario_Perfil");
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

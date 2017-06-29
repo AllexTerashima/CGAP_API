@@ -10,6 +10,7 @@ using CGAP_API.Repository.Perfis;
 using CGAP_API.Repository.Products;
 using CGAP_API.Repository.Salas;
 using CGAP_API.Repository.Usuarios;
+using CGAP_API.Settings;
 
 namespace CGAP_API
 {
@@ -56,6 +57,15 @@ namespace CGAP_API
                     builder => builder.AllowAnyOrigin()
                                       .AllowAnyHeader()
                                       .AllowAnyMethod());
+            });
+
+            // Configure MyOptions using config by installing Microsoft.Extensions.Options.ConfigurationExtensions
+            services.Configure<CustomSettings>(Configuration);
+
+            // Configure MyOptions using code
+            services.Configure<CustomSettings>(myOptions =>
+            {
+                myOptions.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
             });
         }
 

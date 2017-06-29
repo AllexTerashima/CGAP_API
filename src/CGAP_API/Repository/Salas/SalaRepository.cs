@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CGAP_API.Models;
+using CGAP_API.Settings;
+using Microsoft.Extensions.Options;
 
 namespace CGAP_API.Repository.Salas
 {
     public class SalaRepository : ISalaRepository
     {
         ApplicationDbContext context;
+        protected CustomSettings _settings;
 
-        public SalaRepository(ApplicationDbContext _context)
+        public SalaRepository(IOptions<CustomSettings> settings, ApplicationDbContext _context)
         {
+            _settings = settings.Value;
             context = _context;
         }
 
         public void Add(Sala item)
         {
-            context.Add(item);
-            context.SaveChanges();
+            using (var db = new ApplicationDbContext())
+            {
+                db.Salas.Add(item);
+                db.SaveChanges();
+            }
         }
 
         public Sala Find(int id)

@@ -9,11 +9,6 @@ namespace CGAP_API.Models
 {
     public class Perfil
     {
-        public Perfil()
-        {
-            PerfilUsuarios = new List<Usuario>();
-        }
-
         [Key]
         public int PerfilID { get; set; }
 
@@ -25,7 +20,5 @@ namespace CGAP_API.Models
         public bool Receber { get; set; }
         
         public bool Auditorar { get; set; }
-
-        public virtual ICollection<Usuario> PerfilUsuarios { get; set; }
     }
 }
