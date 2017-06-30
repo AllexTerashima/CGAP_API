@@ -5,24 +5,21 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CGAP.Domain.Models
+namespace CGAP_API.Models
 {
-    public class Departamento
+    public class Sala
     {
         [Key]
-        public int DepartamentoID { get; set; }
+        public int SalaID { get; set; }
 
-        [Required (ErrorMessage = "Campo Obrigatório")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
-        public string Pais { get; set; }
+        public string Tag { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
-        public string Estado { get; set; }
-
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        public string Cidade { get; set; }
-
+        public int DepartamentoID { get; set; }
+        public virtual Departamento Departamento { get; set; }
     }
 }

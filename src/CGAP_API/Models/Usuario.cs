@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
-namespace CGAP.Domain.Models
+namespace CGAP_API.Models
 {
     public class Usuario 
     {
