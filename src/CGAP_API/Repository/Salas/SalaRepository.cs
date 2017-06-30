@@ -12,21 +12,23 @@ namespace CGAP_API.Repository.Salas
     public class SalaRepository : ISalaRepository
     {
         ApplicationDbContext context;
-        private readonly CustomSettings _settings;
+        //private readonly CustomSettings _settings;
 
-        public SalaRepository(IOptions<CustomSettings> settings, ApplicationDbContext _context)
+        public SalaRepository(/*IOptions<CustomSettings> settings,*/ApplicationDbContext _context)
         {
-            _settings = settings.Value;
+            //_settings = settings.Value;
             context = _context;
         }
 
-        public async Task Add(Sala item)
+        public void Add(Sala item)
         {
-            using (var db = new SqlConnection(_settings.ConnectionString))
+            /*using (var db = new SqlConnection(_settings.ConnectionString))
             {
-                var query = "INSET INTO dbo.Sala (SalaID, Nome, Tag, DepartamentoID) VALUES (@SalaID, @Nome, @Tag, @DepartamentoID)";
+                var query = "INSERT INTO dbo.Sala (SalaID, Nome, Tag, DepartamentoID) VALUES (@SalaID, @Nome, @Tag, @DepartamentoID)";
                 var result = await db.ExecuteAsync(query, item);
-            }           
+            }*/
+            context.Salas.Add(item);
+            context.SaveChanges();
         }
 
         public Sala Find(int id)

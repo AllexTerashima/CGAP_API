@@ -58,7 +58,7 @@ namespace CGAP_SITE.Controllers
            return RedirectToAction("Index", obj);
         }
 
-        public ActionResult Update(int id)
+        public ActionResult Update(string id)
         {
             HttpResponseMessage response =
             client.GetAsync("http://localhost:49820/api/usuarios/" + id).Result;
@@ -77,14 +77,14 @@ namespace CGAP_SITE.Controllers
             var contentData = new StringContent(stringData,
             System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage response = client.PutAsync
-            ("http://localhost:49820/api/usuarios/" + obj.UsuarioID,
+            ("http://localhost:49820/api/usuarios/" + obj.Id,
             contentData).Result;
             ViewBag.Message = response.Content.
             ReadAsStringAsync().Result;
             return RedirectToAction("Index", obj);
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
             HttpResponseMessage response =
             client.GetAsync("http://localhost:49820/api/usuarios/" + id).Result;
@@ -101,7 +101,7 @@ namespace CGAP_SITE.Controllers
         {
             HttpResponseMessage response =
             client.DeleteAsync("http://localhost:49820/api/usuarios/"
-            + obj.UsuarioID).Result;
+            + obj.Id).Result;
             TempData["Message"] =
             response.Content.ReadAsStringAsync().Result;
             return RedirectToAction("Index");
@@ -127,7 +127,7 @@ namespace CGAP_SITE.Controllers
             <List<Departamento>>(stringData);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
             HttpResponseMessage response =
             client.GetAsync("http://localhost:49820/api/usuarios/" + id).Result;

@@ -6,7 +6,7 @@ namespace CGAP_API.Repository.Salas
 {
     public interface ISalaRepository
     {
-        Task Add(Sala item);
+        void Add(Sala item);
         IEnumerable<Sala> GetAll();
         Sala Find(int key);
         void Remove(int Id);

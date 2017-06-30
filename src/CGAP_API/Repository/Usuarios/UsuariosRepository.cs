@@ -4,28 +4,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using CGAP_API.Models;
 using System.IO;
+using Microsoft.AspNetCore.Identity;
 
 namespace CGAP_API.Repository.Usuarios
 {
     public class UsuariosRepository : IUsuariosRepository
     {
         public ApplicationDbContext context;
+        public UserManager<Usuario> _userManager;
+        public SignInManager<Usuario> _signInManager;
 
-        public UsuariosRepository(ApplicationDbContext _context)
+        public UsuariosRepository(ApplicationDbContext _context, UserManager<Usuario> userManager, SignInManager<Usuario> signInManager)
         {
             context = _context;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
-        public void Add(Usuario item)
+        public async Task Add(Usuario item)
         {
-            context.Usuarios.Add(item);
-            context.SaveChanges();
+            await _userManager.CreateAsync(item);
         }
 
-        public Usuario Find(int id)
+        public async Task<Usuario> Find(string id)
         {
-            var item = context.Usuarios.SingleOrDefault(u => u.UsuarioID == id);
-            return item;
+            return await _userManager.FindByIdAsync(id);
         }
 
         public IEnumerable<Usuario> GetAll()
@@ -33,33 +36,14 @@ namespace CGAP_API.Repository.Usuarios
             return context.Usuarios.ToList();
         }
 
-        public void Remove(int Id)
+        public async Task Remove(string Id)
         {
-            var item = Find(Id);
-            if (item != null)
-            {
-                context.Usuarios.Remove(item);
-                context.SaveChanges();
-            }
+            await _userManager.DeleteAsync(await Find(Id));
         }
 
-        public void Update(Usuario itemToUpdate, Usuario item)
+        public async Task Update(Usuario itemToUpdate, Usuario item)
         {
-            itemToUpdate.Rg = item.Rg;
-            itemToUpdate.Cpf = item.Cpf;
-            itemToUpdate.Nascimento = item.Nascimento;
-            itemToUpdate.Email = item.Email;
-            itemToUpdate.Senha = item.Senha;
-            itemToUpdate.ConfirmarSenha = item.ConfirmarSenha;
-            //itemToUpdate.Departamento = item.Departamento;
-            itemToUpdate.DepartamentoID = item.DepartamentoID;
-            itemToUpdate.Nome = item.Nome;
-            itemToUpdate.Telefone = item.Telefone;
-            itemToUpdate.Auditorar = item.Auditorar;
-            itemToUpdate.Emitir = item.Emitir;
-            itemToUpdate.Receber = item.Receber;
-            context.Usuarios.Update(itemToUpdate);
-            context.SaveChanges();
+            await _userManager.UpdateAsync(item);
         }
     }
 }
