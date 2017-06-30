@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CGAP_API.Settings
+namespace CGAP.Domain.Models
 {
     public class CustomSettings
     {

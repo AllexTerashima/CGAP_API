@@ -41,13 +41,14 @@ namespace CGAP_API.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Create([FromBody]Sala item)
+        public async Task<IActionResult> Create([FromBody]Sala item)
         {
             if(item == null)
             {
                 return BadRequest();
             }
-            SalaRepo.Add(item);
+
+            await SalaRepo.Add(item);
 
             return CreatedAtRoute("GetSalas", new { controller = "Salas", id = item.SalaID}, item);
         }

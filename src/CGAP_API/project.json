@@ -23,7 +23,9 @@
     "Microsoft.AspNetCore.Cors": "1.0.0",
     "Microsoft.IdentityModel.Tokens": "5.0.0",
     "System.IdentityModel.Tokens.Jwt": "5.0.0",
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0"
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
+    "Dapper": "1.50.2",
+    "CGAP.Domain": "1.0.0-*"
   },
 
     "tools": {

@@ -9,7 +9,7 @@ using CGAP_API.Repository.Departamentos;
 using CGAP_API.Repository.Products;
 using CGAP_API.Repository.Salas;
 using CGAP_API.Repository.Usuarios;
-using CGAP_API.Settings;
+using CGAP_API.Models;
 
 namespace CGAP_API
 {
@@ -57,14 +57,11 @@ namespace CGAP_API
                                       .AllowAnyMethod());
             });
 
-            // Configure MyOptions using config by installing Microsoft.Extensions.Options.ConfigurationExtensions
-            services.Configure<CustomSettings>(Configuration);
-
-            // Configure MyOptions using code
-            services.Configure<CustomSettings>(myOptions =>
+            services.Configure<CustomSettings>(options =>
             {
-                myOptions.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
+                options.ConnectionString = Configuration.GetConnectionString("DefaultConnection");
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
