@@ -1,9 +1,12 @@
-﻿using CGAP_API.Models;
+﻿using CGAP.Domain.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace CGAP_API.Repository.Products
+namespace CGAP.Domain.Repository.IRepository
 {
-    public interface IProdutosRepository
+    public class IProdutoRepository
     {
         void Add(Produto item);
         IEnumerable<Produto> GetAll();

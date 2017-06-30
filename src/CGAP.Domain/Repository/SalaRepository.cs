@@ -1,13 +1,10 @@
-﻿using System;
+﻿using CGAP.Domain.Repository.IRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CGAP_API.Models;
-using Microsoft.Extensions.Options;
-using Dapper;
-using System.Data.SqlClient;
 
-namespace CGAP_API.Repository.Salas
+namespace CGAP.Domain.Repository
 {
     public class SalaRepository : ISalaRepository
     {
@@ -26,7 +23,7 @@ namespace CGAP_API.Repository.Salas
             {
                 var query = "INSET INTO dbo.Sala (SalaID, Nome, Tag, DepartamentoID) VALUES (@SalaID, @Nome, @Tag, @DepartamentoID)";
                 var result = await db.ExecuteAsync(query, item);
-            }           
+            }
         }
 
         public Sala Find(int id)

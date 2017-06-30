@@ -1,10 +1,12 @@
-﻿using CGAP_API.Models;
+﻿using CGAP.Domain.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace CGAP_API.Repository.Salas
+namespace CGAP.Domain.Repository.IRepository
 {
-    public interface ISalaRepository
+    public class ISalaRepository
     {
         Task Add(Sala item);
         IEnumerable<Sala> GetAll();

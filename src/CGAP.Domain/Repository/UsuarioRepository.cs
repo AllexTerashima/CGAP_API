@@ -1,13 +1,12 @@
-﻿using System;
+﻿using CGAP.Domain.Repository.IRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CGAP_API.Models;
-using System.IO;
 
-namespace CGAP_API.Repository.Usuarios
+namespace CGAP.Domain.Repository
 {
-    public class UsuariosRepository : IUsuariosRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
         public ApplicationDbContext context;
 

@@ -1,14 +1,13 @@
-﻿using System;
+﻿using CGAP.Domain.Repository.IRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CGAP_API.Models;
 
-namespace CGAP_API.Repository.Products
+namespace CGAP.Domain.Repository
 {
-    public class ProdutosRepository : IProdutosRepository
+    public class ProdutoRepository : IProdutoRepository
     {
-
         ApplicationDbContext context;
         public ProdutosRepository(ApplicationDbContext _context)
         {
@@ -54,4 +53,5 @@ namespace CGAP_API.Repository.Products
             context.SaveChanges();
         }
     }
+}
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,7 +11,7 @@ namespace CGAP.Domain.Models
         [Key]
         public int DepartamentoID { get; set; }
 
-        [Required (ErrorMessage = "Campo Obrigatório")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório")]
@@ -23,6 +22,5 @@ namespace CGAP.Domain.Models
 
         [Required(ErrorMessage = "Campo Obrigatório")]
         public string Cidade { get; set; }
-
     }
 }

@@ -1,12 +1,12 @@
-﻿using CGAP_API.Models;
+﻿using CGAP.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CGAP_API.Repository.Departamentos
+namespace CGAP.Domain.Repository.IRepository
 {
-    public interface IDepartamentosRepository
+    public class IDepartamentoRepository
     {
         void Add(Departamento item);
         IEnumerable<Departamento> GetAll();

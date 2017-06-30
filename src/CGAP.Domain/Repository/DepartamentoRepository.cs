@@ -1,14 +1,13 @@
-﻿using System;
+﻿using CGAP.Domain.Models;
+using CGAP.Domain.Repository.IRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CGAP_API.Models;
 
-namespace CGAP_API.Repository.Departamentos
+namespace CGAP.Domain.Repository
 {
-    public class DepartamentoRepository : IDepartamentosRepository
-    {
-        ApplicationDbContext context;
+    public class DepartamentoRepository : IDepartamentoRepository
 
         public DepartamentoRepository(ApplicationDbContext _context)
         {
